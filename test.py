@@ -13,7 +13,7 @@ imgSize = 300
 
 counter = 0
 
-labels = ["FINE", "I LOVE YOU", "MONEY", "SORRY", "WATER"]   # to show the result according to the index produced by the classifier
+labels = ["FINE", "I HATE YOU", "I LOVE YOU", "MONEY", "SORRY", "STOP", "TELEPHONE", "WATER", "WHERE", "WHY", "YES"]   # to show the result according to the index produced by the classifier
 
 while True:
     success, img = cap.read()
@@ -49,7 +49,7 @@ while True:
             imgWhite[hGap:hCal+hGap, :] = imgResize
             prediction, index = classifier.getPrediction(imgWhite)
 
-        cv2.putText(imgOutput, labels[index], (x, y-20), cv2.FONT_HERSHEY_COMPLEX, 2, (0, 0, 0), 1)
+        cv2.putText(imgOutput, labels[index], (x, y-20), cv2.FONT_HERSHEY_COMPLEX, 2, (255, 0, 255), 1)
 
     cv2.imshow("ImageFinal", imgOutput)
     cv2.waitKey(1)
